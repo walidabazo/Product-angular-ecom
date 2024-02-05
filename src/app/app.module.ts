@@ -9,6 +9,9 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { HomeModule } from './home/home.module';
 import { ErrorInterceptor } from './core/Interceptors/error.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BreadcrumbModule } from 'xng-breadcrumb';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { LoadingInterceptor } from './core/Interceptors/loading.interceptor';
 
 
 
@@ -27,11 +30,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
    SharedsModule,
    PaginationModule,
    HomeModule,
-   BrowserAnimationsModule
+   BrowserAnimationsModule,
+   BreadcrumbModule,NgxSpinnerModule
 
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:ErrorInterceptor,multi:true},
+    {provide:HTTP_INTERCEPTORS,useClass:LoadingInterceptor,multi:true},
     provideClientHydration()
   ],
   bootstrap: [AppComponent]

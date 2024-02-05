@@ -6,6 +6,9 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { SharedsModule } from '../shareds/shareds.module';
 import { RouterModule } from '@angular/router';
 import { ShopsRoutingModule } from './shops-routing.module';
+import { BreadcrumbModule } from 'xng-breadcrumb';
+
+
 
 
 
@@ -17,10 +20,14 @@ import { ShopsRoutingModule } from './shops-routing.module';
     ShopsItemComponent,
     ProductDetailsComponent,
 
+
   ],
   imports: [
-    CommonModule,SharedsModule,ShopsRoutingModule
+    CommonModule,SharedsModule,ShopsRoutingModule,BreadcrumbModule
   ],
-  exports:[]
+  exports:[
+
+    
+  ]
 })
 export class ShopsModule { }

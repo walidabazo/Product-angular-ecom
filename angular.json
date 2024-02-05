@@ -38,7 +38,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "./node_modules/ngx-toastr/toastr.css"
+              "./node_modules/ngx-toastr/toastr.css",
+              "./node_modules/ngx-spinner/animations/ball-atom.css"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
