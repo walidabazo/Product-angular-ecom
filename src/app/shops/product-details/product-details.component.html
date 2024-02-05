@@ -1,0 +1,33 @@
+<br><br><br><br><br><br><br><br>
+
+<div *ngIf="product"><div class="row">
+<div class="col-lg-5" style="text-align: center;">     
+    <img src="{{product.productPicture}}" style="width: 50%;">
+</div>
+<div  class="col-lg-7">
+    <div class="product_details">
+        <div class="product_details_title">
+            <h2>{{product.name}}</h2>
+            <p>{{product.description}}</p>
+        </div>
+        <div class="product_price">${{product.price}}</div>
+        <ul class="star_rating">
+            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+            <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+        </ul>
+        <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
+            <span>Quantity:</span>
+            <div class="quantity_selector">
+                <span class="minus"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                <span id="quantity_value">1</span>
+                <span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
+            </div>
+            <div class="red_button " style="width: 140px;"><a href="#">add to cart</a></div>
+            <div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
+        </div>
+</div>
+</div>
+</div>

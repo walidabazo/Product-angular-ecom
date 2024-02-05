@@ -60,9 +60,9 @@
                     </div>
                     <nav class="navbar">
                         <ul class="navbar_menu">
-                            <li><a href="#">home</a></li>
-                            <li><a href="#">shop</a></li>
-                            <li><a href="#">promotion</a></li>
+                            <li><a class="menu_selected"  routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">home</a></li>
+                            <li><a  class="menu_selected"  routerLink="/shop" routerLinkActive="active"  [routerLinkActiveOptions]="{exact:true}" >shop</a></li>
+                            <li><a routerLink="test-error">Test Error</a></li>
                             <li><a href="#">pages</a></li>
                             <li><a href="#">blog</a></li>
                             <li><a href="contact.html">contact</a></li>
@@ -125,8 +125,8 @@
                     <li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
                 </ul>
             </li>
-            <li class="menu_item"><a href="#">home</a></li>
-            <li class="menu_item"><a href="#">shop</a></li>
+            <li class="menu_item"><a href="#" routerLink="/">home</a></li>
+            <li class="menu_item"><a href="#" routerLink="/shops">shop</a></li>
             <li class="menu_item"><a href="#">promotion</a></li>
             <li class="menu_item"><a href="#">pages</a></li>
             <li class="menu_item"><a href="#">blog</a></li>

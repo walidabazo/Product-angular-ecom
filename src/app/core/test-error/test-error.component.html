@@ -1,0 +1,12 @@
+<br><br><br><br><br><br><br><br><div class="container" >
+    <button (click)="get400Error()" class="btn btn-outline mx-3" >400 Error</button>
+    <button (click)="get404Error()" class="btn btn-outline mx-3" >404 Error</button>
+    <button (click)="get500Error()" class="btn btn-outline mx-3" >500 sever Error</button>
+    <button (click)="get400validationError()" class="btn btn-outline mx-3" >400 validation error</button>
+</div>
+<div *ngfor="validationErrors">
+<ol>
+<li *ngIf="let items of validationErrors">{{items}}</li>
+
+</ol>
+</div>

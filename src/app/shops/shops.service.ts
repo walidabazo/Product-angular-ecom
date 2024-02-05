@@ -5,6 +5,7 @@ import { ICategorys } from '../shareds/Categorys';
 import { response } from 'express';
 import { map } from 'rxjs/operators';
 import {ShopParamss} from '../shareds/ShopParamss'
+import { IProduct } from '../shareds/product';
 @Injectable({
   providedIn: 'root'
 })
@@ -34,5 +35,10 @@ baseURL='https://localhost:44332/api/'
     getcategorys()
     {
       return this.http.get<ICategorys[]>(this.baseURL+'Category/get-all-category');
+    }
+    getproduct(id:number)
+    {
+  return this.http.get<IProduct>(this.baseURL+'Product/get-product-by-id/'+id);
+
     }
 }
