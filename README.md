@@ -1,6 +1,11 @@
 # Client
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.2.
+# Video 1
+[![Watch the video](https://img.youtube.com/vi/gBJgEfigKLc/0.jpg)](https://youtu.be/gBJgEfigKLc)
+# Video 2
+[![Watch the video](https://img.youtube.com/vi/zaxiX1gyCKM/0.jpg)](https://youtu.be/zaxiX1gyCKM)
+
 
 ## Development server
 
