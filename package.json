@@ -21,6 +21,7 @@
     "@angular/platform-server": "^17.1.0",
     "@angular/router": "^17.1.0",
     "@angular/ssr": "^17.1.2",
+    "angular-uuid": "^0.0.4",
     "bootstrap": "^5.3.2",
     "express": "^4.18.2",
     "font-awesome": "^4.7.0",
@@ -31,6 +32,7 @@
     "pagination": "^0.4.6",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "uuid": "^9.0.1",
     "xng-breadcrumb": "^10.0.2",
     "zone.js": "~0.14.3"
   },

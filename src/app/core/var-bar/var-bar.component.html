@@ -3,9 +3,7 @@
     <div class="top_nav">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <div class="top_nav_left">free shipping on all u.s orders over $50</div>
-                </div>
+            
                 <div class="col-md-6 text-right">
                     <div class="top_nav_right">
                         <ul class="top_nav_menu">
@@ -56,7 +54,7 @@
             <div class="row">
                 <div class="col-lg-12 text-right">
                     <div class="logo_container">
-                        <a href="#">colo<span>shop</span></a>
+                        <a routerLink="/" ><img src="/assets/images/logo.png" style="max-height: 70px;"></a>
                     </div>
                     <nav class="navbar">
                         <ul class="navbar_menu">
@@ -67,13 +65,13 @@
                             <li><a href="#">blog</a></li>
                             <li><a href="contact.html">contact</a></li>
                         </ul>
-                        <ul class="navbar_user">
+                        <ul  routerLink="/basket"  *ngIf="(basket$ | async) as basket"  class="navbar_user">
                         <!--    <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>-->
-                            <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                            <li><a routerLink="/basket"><i class="fa fa-user" aria-hidden="true"></i></a></li>
                             <li class="checkout">
-                                <a href="#">
+                                <a routerLink="/basket">
                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                    <span id="checkout_items" class="checkout_items">2</span>
+                                    <span id="checkout_items" class="checkout_items">{{basket.basketItems.length}}</span>
                                 </a>
                             </li>
                         </ul>

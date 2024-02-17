@@ -10,5 +10,5 @@
             <div class="product_price">${{products.price}}</div>
         </div>
     </div>
-    <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+    <div class="red_button add_to_cart_button"><a routerLink="/basket" (click)="addItemToBasket()" >add to cart</a></div>
 </div>
