@@ -30,9 +30,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 # Angular 17 with  Asp.net Core 8 Web API  Full Course Video 9 (register - Confirm Password -AuthGuard ) 
 [![Watch the video](https://img.youtube.com/vi/G-umKSEhjIE/0.jpg)](https://youtu.be/G-umKSEhjIE)
 
+
 # Back End Asp .NET Core 8 Web API :
-https://www.youtube.com/watch?v=UqegTYn2aKE&list=PLazvcyckcBwitbcbYveMdXlw8mqoBDbTT&index=1
-https://github.com/walidabazo/Product-API
+## Full Course  :
+[https://www.youtube.com/watch?v=gBJgEfigKLc&list=PLazvcyckcBwgxtohJFrQw8uwpFUrsOUcb](https://www.youtube.com/watch?v=UqegTYn2aKE&list=PLazvcyckcBwitbcbYveMdXlw8mqoBDbTT&index=1)
+
+## Code
+[https://github.com/walidabazo/Product-API](https://github.com/walidabazo/Product-API)
 
 
 ## Development server
