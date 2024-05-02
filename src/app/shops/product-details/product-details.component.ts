@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ShopsService } from '../shops.service';
 import { ActivatedRoute } from '@angular/router';
-import { IProduct } from '../../shareds/product';
+import { IProduct } from '../../shareds/Models/product';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { BasketService } from '../../basket/basket.service';
 

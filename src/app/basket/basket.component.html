@@ -1,53 +1,23 @@
 <div *ngIf="(Basket$|async)===null">
-    <h3>There Is  no item added !</h3>
+  <h3>There Is no item added !</h3>
 </div>
 <div *ngIf="(Basket$|async)as basket">
-    <div class="row">
-
-        <table class="table" >
-            <thead class="table-light">
-              <tr>
-             
-                <th scope="col"></th>
-                <th scope="col">Product </th>
-                <th scope="col">Price </th>
-                <th scope="col">Quantity</th>
-                <th scope="col">SubTotal</th>
-              </tr>
-            </thead>
-            <tbody *ngFor="let item of basket.basketItems">
-              <tr>
-             
-                <th >  <span style=" height: 80px; width: 20px;  text-align: left; display: table-cell;
-                    vertical-align: middle;"><i (click)="removeBasketitem(item)" class="fa fa-times"></i></span></th>
-
-                <td><a routerLink="/shop/{{item.id}}">  
-                <span style=" height: 80px; width: 250px;  text-align: left; display: table-cell;
-                    vertical-align: middle;">
-                    <img src="{{item.productPicture}}" style="max-height: 70px;" alt="{{item.productName}}"> 
-                    <span style=" font-size: 15px;"> {{item.productName}}</span> </span></a></td>
-
-                <th >{{item.price| currency}}</th>
-
-                <td>
-                  <i (click)="decrementBasketitemQuantity(item)" class="fa fa-minus-square" style="color: red;" aria-hidden="true"></i> 
-                  <span style="font-size: 16px; font-weight: bold;" > {{item.quantity}} </span>
-                  <i (click)="incrementBasketitemQuantity(item)" class="fa fa-plus-square" style="color: red;" aria-hidden="true"></i>
-                </td>
-                <td><strong>{{item.price * item.quantity | currency}} </strong></td>
-              </tr>
-            </tbody>
-        </table>          
-    
+  <div class="row">
+    <div class="col-12">
+      <app-basket-summery   (decrement)="decrementBasketItemQuantity($event)"
+      (increment)="incrementBasketItemQuantity($event)"
+      (remove)="removeBasketItem($event)"></app-basket-summery>
     </div>
-    <div class="row">
-      <div class="col-6">
-      </div>
-      <div class="col-6">
-        <app-order-totals></app-order-totals>
-        <a routerLink="/checkout" class="btn btn-outline-success">
-          checkout
-        </a>
-      </div>
+  
+  </div>
+  <div class="row">
+    <div class="col-6">
     </div>
+    <div class="col-6">
+      <app-order-totals></app-order-totals>
+      <a routerLink="/checkout" class="btn btn-outline-success">
+        checkout
+      </a>
+    </div>
+  </div>
 </div>

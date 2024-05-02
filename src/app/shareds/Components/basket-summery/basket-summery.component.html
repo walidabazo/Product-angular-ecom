@@ -1,0 +1,35 @@
+<ng-container *ngIf="Basket$|async" ><table class="table" >
+    <thead class="table-light">
+      <tr>
+     
+        <th scope="col" *ngIf="isBasket" ></th>
+        <th scope="col">Product </th>
+        <th scope="col">Price </th>
+        <th scope="col">Quantity</th>
+        <th scope="col">SubTotal</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let item of (Basket$ | async).basketItems">
+      <tr>
+     
+        <th *ngIf="isBasket" >  <span style=" height: 80px; width: 20px;  text-align: left; display: table-cell;
+            vertical-align: middle;"><i (click)="removeItemFromBasket(item)" class="fa fa-times"></i></span></th>
+
+        <td><a routerLink="/shop/{{item.id}}">  
+        <span style=" height: 80px; width: 250px;  text-align: left; display: table-cell;
+            vertical-align: middle;">
+            <img src="{{item.productPicture}}" style="max-height: 70px;" alt="{{item.productName}}"> 
+            <span style=" font-size: 15px;"> {{item.productName}}</span> </span></a></td>
+
+        <th >{{item.price| currency}}</th>
+
+        <td >
+          <i *ngIf="isBasket" (click)="decrementBasketItemQuantity(item)" class="fa fa-minus-square" style="color: red;" aria-hidden="true"></i> 
+          <span style="font-size: 16px; font-weight: bold;" > {{item.quantity}} </span>
+          <i *ngIf="isBasket"  (click)="incrementBasketItemQuantity(item)" class="fa fa-plus-square" style="color: red;" aria-hidden="true"></i>
+        </td>
+        <td><strong>{{item.price * item.quantity | currency}} </strong></td>
+      </tr>
+    </tbody>
+</table>          
+</ng-container>

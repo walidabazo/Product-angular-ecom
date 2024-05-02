@@ -1,11 +1,11 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IPagination } from '../shareds/Paginations';
-import { ICategorys } from '../shareds/Categorys';
+import { IPagination } from '../shareds/Models/Paginations';
+import { ICategorys } from '../shareds/Models/Categorys';
 import { response } from 'express';
 import { map } from 'rxjs/operators';
-import {ShopParamss} from '../shareds/ShopParamss'
-import { IProduct } from '../shareds/product';
+import {ShopParamss} from '../shareds/Models/ShopParamss'
+import { IProduct } from '../shareds/Models/product';
 @Injectable({
   providedIn: 'root'
 })

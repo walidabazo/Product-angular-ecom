@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IProduct } from '../../shareds/product';
+import { IProduct } from '../../shareds/Models/product';
 import { BasketService } from '../../basket/basket.service';
 
 @Component({

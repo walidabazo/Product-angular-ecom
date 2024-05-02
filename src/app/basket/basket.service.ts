@@ -2,8 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { BehaviorSubject, map } from 'rxjs';
-import { Basket, IBasket, IBasketItem, IBasketTotals } from '../shareds/Basket';
-import { IProduct } from '../shareds/product';
+import { Basket, IBasket, IBasketItem, IBasketTotals } from '../shareds/Models/Basket';
+import { IProduct } from '../shareds/Models/product';
+import { IDeliveryMethod } from '../shareds/Models/Deliverymethods';
 
 @Injectable({
   providedIn: 'root'
@@ -14,15 +15,22 @@ export class BasketService {
   baseURL: string = environment.baseURL;
   private basketSource = new BehaviorSubject<IBasket>(null);
   basket$ = this.basketSource.asObservable();
+shipping:number=0;
 
-  incrementBasketitemQuantity(item: IBasketItem) {
+
+setShippingPrice(deliverymethod:IDeliveryMethod)
+{
+  this.shipping=deliverymethod.price;
+  this.calculatetotal();
+}
+  incrementBasketItemQuantity(item: IBasketItem) {
     const basket = this.getCurrentBasketValue();
     const itemIndex = basket.basketItems.findIndex(x => x.id === item.id);
     basket.basketItems[itemIndex].quantity++;
     this.setBasket(basket);
   }
 
-  declarerementBasketitemQuantity(item: IBasketItem) {
+  decrementBasketItemQuantity(item: IBasketItem) {
     const basket = this.getCurrentBasketValue();
     const itemIndex = basket.basketItems.findIndex(x => x.id === item.id);
     if (basket.basketItems[itemIndex].quantity > 1) {
@@ -30,10 +38,13 @@ export class BasketService {
       this.setBasket(basket);
     }
     else {
-      this.removeItemFromBasket(item)
+      this.removeBasketItem(item)
     }
+
+   
+   
   }
-  removeItemFromBasket(item: IBasketItem) {
+  removeBasketItem(item: IBasketItem) {
     const basket = this.getCurrentBasketValue();
     if (basket.basketItems.some(x => x.id === item.id)) 
     {
@@ -47,7 +58,7 @@ export class BasketService {
     }
 
   }
-  deletLocalBasket(id: string) {
+  deletLocalBasket(id:string) {
     this.basketSource.next(null);
     this.baskettotalsource.next(null);
     localStorage.removeItem('basket_id');
@@ -70,7 +81,7 @@ export class BasketService {
   baskettotal$ = this.baskettotalsource.asObservable();
   private calculatetotal() {
     const basket = this.getCurrentBasketValue();
-    const shipping = 0;
+    const shipping = this.shipping;
     const subtotal = basket.basketItems.reduce((a, c) => {
       return (c.price * c.quantity) + a;
     }, 0)

@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-md-12 " style="align-items: center;">
+
+        <main class="form-signin">
+            <div class="text-center">
+        <form [formGroup]="registerForm" novalidate (ngSubmit)="Onsubmit()">
+            <h1 class="h3 mb-3 fw-normal">Requistration</h1>
+            <div class="form-floating">
+                <input type="text" [class.is.invalid]="_displayName.invalid && _displayName.touched"
+                [class.is.valid]="_displayName.valid"  formControlName="displayName" class="form-control" 
+                    placeholder="Name" >
+                    <small class="test-danger" style="font-weight: bold; color: red;" [class.d-none]="_displayName.valid|| _displayName.untouched">Enter Your Name</small>
+            </div>
+            <div style="height: 10px;"></div>
+
+            <div class="form-floating">
+                <input [class.is.invalid]="_email.invalid && _email.touched &&_email?.errors?.['emailExists']"
+                 [class.is.valid]="_email.valid" type="email" formControlName="email" class="form-control" placeholder="name@example.com"  >
+                <span [ngClass]="{'hideLoader':!_email.pending}">
+                <i class="fa fa-spinner fa-spin text-danger loader" ></i></span>
+                 <div *ngIf="_email.invalid && _email.touched && _email?.errors?.['emailExists']">
+                <small class="test-danger" style="font-weight: bold; color: red;" *ngIf="_email?.errors?.['required']">Required Email !</small>
+                <small class="test-error" style="font-weight: bold; color: red;" *ngIf="_email?.errors?.['pattern']">Invalid Email !</small>
+                <small class="test-error" style="font-weight: bold; color: red;" *ngIf="_email?.errors?.['emailExists']">This Email is Aready Token !</small>
+                </div>
+            </div>
+            <div style="height: 10px;"></div>
+            <div class="form-floating">
+                <input type="password" [class.is.invalid]="_password.invalid && _password.touched"
+                [class.is.valid]="_password.valid"  formControlName="password" class="form-control" 
+                    placeholder="Password" >
+                    <small class="test-danger" style="font-weight: bold; color: red;" [class.d-none]="_password.valid|| _password.untouched">Enter The Password </small>
+            </div>
+            <div class="form-floating">
+                <input type="password" formControlName="confirmPassword" class="form-control" placeholder="Password"
+                [class.is-invalid]="registerForm.errors?.['misMatch']"
+                [class.is-valid]="!registerForm.errors?.['misMatch'] && _confirmPassword.touched &&_confirmPassword.dirty">
+
+                    <small class="test-danger" style="font-weight: bold; color: red;" *ngIf="registerForm.errors?.['misMatch']">Confirm Password</small>
+            </div>
+            <div *ngIf="errors" class="text-danger" style="font-weight: bold;">
+                <li *ngFor="let item of errors">
+                    {{item}}
+                </li>
+            </div>
+            <div style="height: 10px;"></div>
+            <div class="form-floating">
+            <button class="btn btn-danger"  style="height: 45px;" [disabled]="registerForm.invalid" >Register</button>
+            </div>
+        </form>
+    </div>
+        </main>
+  
+    </div>
+</div>
+

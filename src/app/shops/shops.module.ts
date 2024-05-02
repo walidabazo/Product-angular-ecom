@@ -23,7 +23,10 @@ import { BreadcrumbModule } from 'xng-breadcrumb';
 
   ],
   imports: [
-    CommonModule,SharedsModule,ShopsRoutingModule,BreadcrumbModule
+    CommonModule,
+    SharedsModule
+    ,ShopsRoutingModule,
+    BreadcrumbModule
   ],
   exports:[
 

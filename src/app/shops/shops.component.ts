@@ -1,8 +1,8 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { ShopsService } from './shops.service';
-import { IProduct } from '../shareds/product';
-import { ICategorys } from '../shareds/Categorys';
-import { ShopParamss } from '../shareds/ShopParamss';
+import { IProduct } from '../shareds/Models/product';
+import { ICategorys } from '../shareds/Models/Categorys';
+import { ShopParamss } from '../shareds/Models/ShopParamss';
 
 @Component({
   selector: 'app-shops',

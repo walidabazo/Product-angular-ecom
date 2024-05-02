@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './core/Interceptors/loading.interceptor';
+import { JwtInterceptor } from '../environments/jwt.interceptor';
 
 
 
@@ -37,6 +38,7 @@ import { LoadingInterceptor } from './core/Interceptors/loading.interceptor';
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:ErrorInterceptor,multi:true},
     {provide:HTTP_INTERCEPTORS,useClass:LoadingInterceptor,multi:true},
+    {provide:HTTP_INTERCEPTORS,useClass:JwtInterceptor,multi:true},
     provideClientHydration()
   ],
   bootstrap: [AppComponent]
